@@ -7,6 +7,10 @@ import Button from '@mui/material/Button';
 function App() {
   const [joke, setJoke] = useState('');
 
+  useEffect(async () => {
+    await generate_random_meme();
+  }, []);
+
   async function generate_random_meme() {
     const res = await fetch('https://api.chucknorris.io/jokes/random');
     const data = await res.json();
@@ -14,10 +18,6 @@ function App() {
     console.log(joke_api);
     setJoke(joke_api);
   }
-
-  useEffect(async () => {
-    await generate_random_meme();
-  }, []);
 
   return (
     <div className="App">
