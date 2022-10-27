@@ -42,7 +42,11 @@ export default function BasicSelect({ setCategoria, categoria }) {
           onChange={handleChange}
         >
           {categorias.map((element) => {
-            return <MenuItem value={element}>{element}</MenuItem>;
+            return (
+              <MenuItem key={element} value={element}>
+                {element}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
